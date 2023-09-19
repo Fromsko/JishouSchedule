@@ -1,0 +1,10 @@
+xlrd
+pandas
+icecream
+loguru
+openpyxl
+pillow
+playwright
+aiofiles
+httpx
+fastapi[all]
