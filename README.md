@@ -1,11 +1,15 @@
 # **课表绘制**
 
-<div style="text-align:center">
-  <img src="res\logo.png" alt="LOGO" width="20%" style="border-radius: 50%;">
-</div>
+<div align="center">
 
-> 📅 **吉首大学个人课表绘制**
-> 简化课程表查询和生成课表图片的流程
+## <img src="res\logo.png" height="60" style="border-radius: 50%;"/>
+
+📅 **吉首大学个人课表绘制**
+🛠️ 简化课程表查询和生成课表图片的流程
+
+---
+
+</div>
 
 ## 📑 功能特点
 
@@ -63,9 +67,9 @@ pipenv shell
 
 ### 获取课表数据
 
-**请求地址:** `http://host:prot/get_cname_data?week=1`
-**请求方式:** `GET`
-**返回格式:** `json`
+- **请求地址:** `http://host:prot/get_cname_data?week=1`
+- **请求方式:** `GET`
+- **返回格式:** `json`
 
 ```json
 {
@@ -77,9 +81,9 @@ pipenv shell
 
 ### 获取课表图片
 
-**请求地址:** `http://host:prot/get_cname_table?week=1`
-**请求方式:** `GET`
-**返回格式:** `image`
+- **请求地址:** `http://host:prot/get_cname_table?week=1`
+- **请求方式:** `GET`
+- **返回格式:** `image`
 
 <div style="text-align:center">
   <img src="res\2021法学3第1周课表.png" alt="示例课表图片" width="80%">
