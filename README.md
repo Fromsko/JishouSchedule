@@ -2,9 +2,10 @@
 
 <div align="center">
 
-## <img src="res\logo.png" height="60" style="border-radius: 50%;"/>
+## <img src="res\logo.png" height="80" style="border-radius: 50%;"/>
 
 📅 **吉首大学个人课表绘制**
+
 🛠️ 简化课程表查询和生成课表图片的流程
 
 ---
@@ -85,7 +86,7 @@ pipenv shell
 - **请求方式:** `GET`
 - **返回格式:** `image`
 
-<div style="text-align:center">
+<div align="center">
   <img src="res\2021法学3第1周课表.png" alt="示例课表图片" width="80%">
 </div>
 
