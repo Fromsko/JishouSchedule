@@ -112,8 +112,12 @@ class Spider(DrawPicture, Parser):
             await browser.close()
         log.info("最新数据获取成功!")
 
-    def _update(self):
+    async def _update(self):
         """ 转换更新 """
+        if list(CACHEDIR.iterdir()) == []:
+            log.error(ErrorStatus.DataIsNull)
+            await self.__task()
+
         for i in CACHEDIR.iterdir():
             data = self.gen_data(i)
             self.save_json_file(

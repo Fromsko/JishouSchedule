@@ -56,5 +56,5 @@ async def redirect_to_login(request: Request, exc: Exception):
 @Base_api.on_event("startup")
 async def startup():
     if list(DATADIR.iterdir()) == []:
-        Cname._update()
+        await Cname._update()
     log.info("程序已经启动!")

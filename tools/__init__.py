@@ -170,6 +170,7 @@ class ErrorStatus:
     ParserError = "课表数据解析错误!"
     ServerError = "教务系统服务可能出错了!"
     NotFoundBaseIMG = "没有初始文件, 正在绘制。"
+    DataIsNull = "没有任何数据源，正在启动程序获取。"
 
 
 def open_xls_as_xlsx(xls_path, xlsx_path) -> Path:
