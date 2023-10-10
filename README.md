@@ -19,6 +19,16 @@
 - 支持定时任务，定期更新课表。
 - 提供简单的 FastAPI 接口，方便集成到其他应用中。
 
+---
+
+`配套应用`
+
+- [前端应用](./frontend/)：前端页面数据展示
+  ![](./frontend/src/assets/app-running.png)
+- [微信推送](./notify/)：推送数据到微信测试号
+  ![](./res/Starting.png)
+  ![](./res/testimg.png)
+
 ## 📦 安装
 
 首先，确保您的 `Python` 版本为 **3.9** 或更高。然后，执行以下步骤来安装项目：
@@ -60,6 +70,8 @@ pipenv shell
 3. 访问项目文档：
 
    - 打开浏览器访问 <http://localhost:2000/docs> 查看接口文档
+
+   - 访问 `http://host:port` 查看前端显示
 
 4. 绘制个人课表：
    - 使用接口文档中的示例请求，获取您的个人课表并生成图片。
