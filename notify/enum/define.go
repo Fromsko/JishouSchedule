@@ -27,13 +27,3 @@ var (
 	AppID     = utils.Conifg.GetString("AppID")
 	AppSecret = utils.Conifg.GetString("AppSecret")
 )
-
-/*
-
-appid: 'wx13870eadc97c1366'
-appsecret: '7ffee262abf55f1af9345cf91f980401'
-cnamedata: 'http://1.117.154.114:20000/api/v1/get_cname_data?week='
-cnameimage: 'http://1.117.154.114:20000/api/v1/get_cname_table?week='
-weatherkey: 'f86106fc2f764c34884ab1f26ce427bc'
-
-*/
