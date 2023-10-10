@@ -22,10 +22,10 @@
    make clean
    ```
 
-3. 填写配置文件
+3. 填写配置文件 `JishouSchedule/notify/config.yaml`
 
    ```shell
-   vim ./autoTask/config.yaml
+   vim config.yaml
    ```
 
 ### 正常启动
@@ -49,7 +49,7 @@ RUN mkdir -p /code
 WORKDIR /code
 
 # 复制程序
-Copy ./autoTask/notify /code/notify
+Copy ./notify/build/linux_amd64/linux_amd64 /code/notify
 
 # 重设时区
 RUN apk --update add tzdata && \
@@ -68,7 +68,7 @@ CMD ["./notify"]
 #### 启动命令
 
 ```shell
-docker run -itd --restart=always -v /code/autoTask/:/code/ --name=nnotify_sche notify:2.4
+docker run -itd --restart=always -v /code/JishouSchedule/notify/:/code/ --name=notify_sche notify:2.4
 ```
 
 ## ©️ 许可
