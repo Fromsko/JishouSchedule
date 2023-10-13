@@ -4,6 +4,11 @@ import (
 	"notify/utils"
 )
 
+type Server struct {
+	TemplateID string
+	RegisterServerList []RegisterServer
+}
+
 type RegisterServer struct {
 	NickName string // 订阅者 别名
 	UserID   string // 订阅者 ID
@@ -18,14 +23,14 @@ func (receiver RegisterServer) Notify(schedule Service) {
 }
 
 // NewRegister 注册一个服务
-func NewRegister(templateID string, UserInfo ...RegisterServer) (Schedule *ScheduleService, Serve *Service) {
+func NewRegister(s *Server) (Schedule *ScheduleService, Serve *Service) {
 	Schedule = &ScheduleService{}
 
-	for _, user := range UserInfo {
+	for _, user := range s.RegisterServerList {
 		Schedule.Subscribe(user)
 	}
 
-	Serve = InitServe(templateID)
+	Serve = InitServe(s.TemplateID)
 
 	return Schedule, Serve
 }

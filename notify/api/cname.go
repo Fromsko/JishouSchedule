@@ -19,7 +19,7 @@ func GetCnameData() (result map[string]any) {
 	result = make(map[string]any)
 	// 获取数据
 	Spider := knet.SendRequest{
-		FetchURL: enum.CnameData + utils.Week,
+		FetchURL: enum.CnameData + utils.GetWeek(36),
 	}
 	Spider.Send(func(resp []byte, Cookies []*http.Cookie, err error) {
 		// 判断是否请求成功
@@ -33,7 +33,7 @@ func GetCnameData() (result map[string]any) {
 		result["周次"] = map[string]string{"value": weekInfo}
 
 		// 遍历本周数据
-		for key, value := range gjson.GetBytes(resp, "data.课程信息.课程数据."+utils.Weekly).Map() {
+		for key, value := range gjson.GetBytes(resp, "data.课程信息.课程数据."+utils.GetWeekly()).Map() {
 			if value.String() != "没课哟" {
 				course := fmt.Sprintf("%s %s %s",
 					value.Get("课程名"),

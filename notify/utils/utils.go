@@ -5,16 +5,6 @@ import (
 	"time"
 )
 
-var (
-	Week   string
-	Weekly string
-)
-
-func init() {
-	Week = GetWeek(36)
-	Weekly = GetWeekly()
-}
-
 // GetWeekly 获取当前星期
 func GetWeekly() (weekly string) {
 	now := time.Now()

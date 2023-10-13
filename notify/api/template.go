@@ -9,7 +9,7 @@ func InitTemplateMessage() map[string]any {
 	cnameInfo := GetCnameData()
 	weather := SearchWeather("吉首")
 	onesay := GetEveryDay()
-	cnameInfo["Week"] = map[string]string{"value": utils.Weekly}
+	cnameInfo["Week"] = map[string]string{"value": utils.GetWeekly()}
 	cnameInfo["City"] = map[string]string{"value": weather.Local}
 	cnameInfo["Weather"] = map[string]string{"value": weather.WeatherInfo.Text}
 	cnameInfo["Temp"] = map[string]string{"value": weather.WeatherInfo.Temp}

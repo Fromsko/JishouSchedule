@@ -77,7 +77,7 @@ func InitServe(templateID string) *Service {
 		Template: &TemplateMessage{
 			TemplateID: templateID,
 			Data:       make(map[string]any),
-			Url:        enum.CnameImage + utils.Week,
+			Url:        enum.CnameImage + utils.GetWeek(36),
 		},
 	}
 	return s
