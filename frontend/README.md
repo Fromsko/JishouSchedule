@@ -36,9 +36,17 @@
 
 3. 展示
 
-<div align="center">
-   <img src="./src/assets/app-running.png" height=""/>
-</div>
+- `Loading`
+
+   <div align="center">
+      <img src="./src/assets/loading.png" height=""/>
+   </div>
+
+* `Running`
+
+   <div align="center">
+         <img src="./src/assets/app-running.png" height=""/>
+   </div>
 
 ## 🔗 访问
 
