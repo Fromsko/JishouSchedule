@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { Table, Thead, Tbody, Tr, Th, Td, Box } from '@chakra-ui/react'
+import TypingText from './TypingText'
 
 export const ApiURL = ""
 
@@ -41,26 +43,69 @@ export async function GetCnameData () {
         const response = await axios.get(fetchUrl)
         const data = response.data
 
-
         // 判断是否请求成功
-        if (data.code !== 200) {
-            console.error("课表数据获取失败!")
+        if (data.code === 200) {
+            // 遍历本周数据
+            for (const [key, value] of Object.entries(data.data.课程信息.课程数据[weekly])) {
+                if (value !== "没课哟") {
+                    result += `${key} ${value.课程名 || ""} ${value.老师.split('(')[0] || ""} ${value.教室 || ""}\n`
+                }
+            }
             return result
         }
-
-        // 遍历本周数据
-        for (const [key, value] of Object.entries(data.data.课程信息.课程数据[weekly])) {
-            if (value !== "没课哟") {
-                result += `${key} ${value.课程名 || ""} ${value.老师.split('(')[0] || ""} ${value.教室 || ""}\n`
-            }
-        }
-        if (result === "") {
-            return "一天都没有课呢,好好休息休息吧~"
-        }
-        return result
     } catch (error) {
         console.error("Error fetching data:", error)
         return result
     }
+    console.error("课表数据获取失败!")
+    return result
 }
 
+
+export const CnameTable = ({ data }) => {
+    if (data === "") {
+        return (<Box>
+            <TypingText
+                text="一天都没有课呢,好好休息休息吧!"
+                speed={100}
+                onFinish={() => { }}
+                timeOut={1000}
+            />
+        </Box>)
+    }
+    return (
+        <Box>
+            <Table variant="simple">
+                <Thead>
+                    <Tr>
+                        <Th textAlign="center">上课节次</Th>
+                        <Th textAlign="center">课程名</Th>
+                        <Th textAlign="center">老师</Th>
+                        <Th textAlign="center">班级</Th>
+                    </Tr>
+                </Thead>
+                <Tbody fontSize={"3xs"} whiteSpace="nowrap">
+                    {data.map((item, index) => (
+                        <Tr key={index}>
+                            <Td>{item.time}</Td>
+                            <Td>{item.course}</Td>
+                            <Td>{item.teacher}</Td>
+                            <Td>{item.class}</Td>
+                        </Tr>
+                    ))}
+                </Tbody>
+            </Table>
+        </Box>
+    )
+}
+
+export const ParseCnameData = (data) => {
+    if (data === "") {
+        return data
+    }
+    const lines = data.split('\n').filter(Boolean)
+    return lines.map((line) => {
+        const [time, course, teacher, classInfo] = line.split(' ')
+        return { time, course, teacher, class: classInfo }
+    })
+}
