@@ -27,3 +27,7 @@ var (
 	AppID     = utils.Conifg.GetString("AppID")
 	AppSecret = utils.Conifg.GetString("AppSecret")
 )
+
+
+// 版本号
+const VERSION = "2.5"

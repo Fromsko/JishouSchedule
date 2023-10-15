@@ -3,6 +3,7 @@ package main
 import (
 	"notify/api"
 	"notify/core"
+	"notify/enum"
 	"notify/utils"
 
 	"github.com/robfig/cron/v3"
@@ -46,6 +47,7 @@ func AutoTask(Timer string, Task func()) {
 	} else {
 		c.Start()
 		utils.Log.Info("程序启动成功🚀")
+		utils.Log.Info("当前版本: " + enum.VERSION)
 		utils.Log.Info("项目地址: https://github.com/Fromsko/Jishouschedule")
 	}
 }
