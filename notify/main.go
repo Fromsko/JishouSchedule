@@ -3,10 +3,8 @@ package main
 import (
 	"notify/api"
 	"notify/core"
-	"notify/enum"
-	"notify/utils"
-
-	"github.com/robfig/cron/v3"
+	"notify/plugin"
+	_ "notify/statik"
 )
 
 // 程序入口
@@ -25,7 +23,7 @@ func main() {
 		},
 	})
 
-	go AutoTask("0 0 7 * * ?", func() {
+	go plugin.AutoTask("0 0 7 * * ?", func() {
 		// 获取 Token
 		Serve.GetToken()
 		// 获取数据
@@ -33,21 +31,10 @@ func main() {
 		// 推送任务
 		Schedule.PushSchedule(*Serve)
 	})
+
+	go plugin.HtmlServer(
+		":80",
+		// ":443",
+	)
 	select {}
-}
-
-// 自动任务
-func AutoTask(Timer string, Task func()) {
-	c := cron.New(cron.WithSeconds())
-
-	// 每天早晨7:00
-	if _, err := c.AddFunc(Timer, Task); err != nil {
-		utils.Log.Debugf("添加任务时出错：%v", err)
-		return
-	} else {
-		c.Start()
-		utils.Log.Info("程序启动成功🚀")
-		utils.Log.Info("当前版本: " + enum.VERSION)
-		utils.Log.Info("项目地址: https://github.com/Fromsko/Jishouschedule")
-	}
 }
