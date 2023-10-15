@@ -10,11 +10,15 @@
    git clone git@github.com:Fromsko/JishouSchedule.git
    cd JishouSchedule/notify
    go mod tidy
+   go install github.com/rakyll/statik
    ```
 
 2. 构建程序
 
    ```shell
+   # 更新依赖文件
+   ./bin/update
+
    # 构建
    make
 

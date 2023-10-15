@@ -6,10 +6,10 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// CustomTextFormatter 自定义的日志格式
-type CustomTextFormatter struct{}
+// CustomText 自定义的日志格式
+type CustomText struct{}
 
-func (f *CustomTextFormatter) Format(entry *logrus.Entry) ([]byte, error) {
+func (f *CustomText) Format(entry *logrus.Entry) ([]byte, error) {
 	timestamp := entry.Time.Format("2006-01-02 15:04:05")
 	level := entry.Level.String()
 	callerInfo := entry.Message
@@ -36,7 +36,7 @@ func InitLogger() *logrus.Logger {
 	logger := logrus.New()
 
 	// 设置日志输出格式为自定义格式
-	logger.SetFormatter(&CustomTextFormatter{})
+	logger.SetFormatter(&CustomText{})
 
 	// 设置日志级别
 	logger.SetLevel(logrus.DebugLevel)
