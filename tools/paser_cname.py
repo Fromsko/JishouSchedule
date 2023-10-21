@@ -78,10 +78,20 @@ class Parser:
                 for x, time_slot in enumerate(time_slots):
                     # 找到对应的数据
                     course = course_data[x][y].strip().split("\n")
-                    # 找到对应的数据
-                    if len(course) == 1:
+                    if (course_size := len(course)) == 1:
+                        # 当前节次没有课程
                         course = "没课哟"
+                    elif (course_size == 3 and "（网络）" in course[0]):
+                        # 选修课
+                        course[0] = course[0][4:]
+                        course = {
+                            "课程名": course[0] or "",
+                            "老师": "",
+                            "周次": course[1] or "",
+                            "教室": course[2] or "",
+                        } 
                     else:
+                        # 正常课程
                         course = {
                             "课程名": course[0] or "",
                             "老师": course[1] or "",
