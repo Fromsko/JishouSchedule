@@ -2,7 +2,7 @@
 
 <div align="center">
 
-## <img src="res/logo.png" height="80" style="border-radius: 50%;"/>
+## <img src="./logo.png" height="80" style="border-radius: 50%;"/>
 
 📅 **吉首大学个人课表绘制**
 
@@ -24,10 +24,10 @@
 `配套应用`
 
 - [前端应用](./frontend/)：前端页面数据展示
-  ![](res/app-running.png)
+  ![](./app-running.png)
 - [微信推送](./notify/)：推送数据到微信测试号
-  ![](res/Starting.png)
-  ![](res/testimg.png)
+  ![](./Starting.png)
+  ![](./testimg.png)
 
 ## 📦 安装
 
@@ -99,7 +99,7 @@ pipenv shell
 - **返回格式:** `image`
 
 <div align="center">
-  <img src="res/2021法学3第1周课表.png" alt="示例课表图片" width="80%">
+  <img src="./2021法学3第1周课表.png" alt="示例课表图片" width="80%">
 </div>
 
 ## 🙏 鸣谢
