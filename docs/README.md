@@ -2,7 +2,7 @@
 
 <div align="center">
 
-## <img src="../res/logo.png" height="80" style="border-radius: 50%;"/>
+## <img src="./res/logo.png" height="80" style="border-radius: 50%;"/>
 
 📅 **吉首大学个人课表绘制**
 
@@ -23,11 +23,11 @@
 
 `配套应用`
 
-- [前端应用](../frontend/)：前端页面数据展示
-  ![](../frontend/src/assets/app-running.png)
-- [微信推送](../notify/)：推送数据到微信测试号
-  ![](../res/Starting.png)
-  ![](../res/testimg.png)
+- [前端应用](./frontend/)：前端页面数据展示
+  ![](./res/app-running.png)
+- [微信推送](./notify/)：推送数据到微信测试号
+  ![](./res/Starting.png)
+  ![](./res/testimg.png)
 
 ## 📦 安装
 
