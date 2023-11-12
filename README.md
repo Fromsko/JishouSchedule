@@ -31,22 +31,15 @@
 
 ## 📦 安装
 
-首先，确保您的 `Python` 版本为 **3.9** 或更高。然后，执行以下步骤来安装项目：
+首先，确保您的 `Golang` 版本为 **1.21** 或更高。然后，执行以下步骤来安装项目：
 
 **通用安装：**
 
-```bash
-pip install -r requirements.txt
-playwright install chromium
-```
-
-**推荐安装：**
-
-```bash
-pip install pipenv
-pipenv install
-playwright install
-pipenv shell
+```shell
+go install github.com/tc-hib/go-winres@latest
+go-winres init
+go-winres make
+go build -ldflags "-w -s" .
 ```
 
 ## 🚀 快速开始

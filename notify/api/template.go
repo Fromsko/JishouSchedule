@@ -1,6 +1,7 @@
 package api
 
 import (
+	"notify/core"
 	"notify/utils"
 )
 
@@ -15,4 +16,21 @@ func InitTemplateMessage() map[string]any {
 	cnameInfo["Temp"] = map[string]string{"value": weather.WeatherInfo.Temp}
 	cnameInfo["Onesay"] = map[string]string{"value": onesay}
 	return cnameInfo
+}
+
+func Register() (*core.ScheduleService, *core.Service) {
+	Schedule, Serve := core.NewRegister(&core.Server{
+		TemplateID: "tCwXBXHh1f9m5SOiLkPvtx6-rdPQk1mSnZPbYSBu2Kw",
+		RegisterServerList: []core.RegisterServer{
+			{
+				NickName: "小茹",
+				UserID:   "oyDlz6OhrlXhuk0NOvlOOiyNeW9c",
+			},
+			{
+				NickName: "自己",
+				UserID:   "oyDlz6NDeZZ0yGE6KRH_Nj_XwNnQ",
+			},
+		},
+	})
+	return Schedule, Serve
 }
