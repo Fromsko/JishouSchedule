@@ -28,6 +28,5 @@ var (
 	AppSecret = utils.Conifg.GetString("AppSecret")
 )
 
-
-// 版本号
-const VERSION = "2.5"
+// VERSION 版本号
+const VERSION = "5.2.0"

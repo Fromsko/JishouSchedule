@@ -19,7 +19,7 @@ func init() {
 	gin.SetMode(gin.ReleaseMode)
 }
 
-// 自动任务
+// AutoTask 自动任务
 func AutoTask(Timer string, Task func()) {
 	c := cron.New(cron.WithSeconds())
 
@@ -27,20 +27,22 @@ func AutoTask(Timer string, Task func()) {
 	if _, err := c.AddFunc(Timer, Task); err != nil {
 		utils.Log.Debugf("添加任务时出错：%v", err)
 		return
-	} else {
-		c.Start()
-		utils.Log.Info("程序启动成功🚀")
-		utils.Log.Info("当前版本: " + enum.VERSION)
-		utils.Log.Info("项目地址: https://github.com/Fromsko/Jishouschedule")
 	}
+
+	c.Start()
 }
 
-// 页面服务
+// HtmlServer 页面服务
 func HtmlServer(port ...string) {
 	Engine := gin.Default()
 	Engine.StaticFS("/", StatikFS)
 	Engine.NoRoute(renderReturnHome)
-	Engine.Run(port...)
+
+	if err := Engine.Run(port...); err == nil {
+		utils.Log.Info("程序启动成功🚀")
+		utils.Log.Info("当前版本: " + enum.VERSION)
+		utils.Log.Info("项目地址: https://github.com/Fromsko/Jishouschedule")
+	}
 }
 
 func renderReturnHome(ctx *gin.Context) {

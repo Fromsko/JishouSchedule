@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Table, Thead, Tbody, Tr, Th, Td, Box } from '@chakra-ui/react'
 import TypingText from './TypingText'
 
-export const ApiURL = ""
+export const ApiURL = "http://localhost"
 
 // 获取当前星期
 function getWeekly () {
